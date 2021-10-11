@@ -1,0 +1,25 @@
+'use strict';
+
+const numbers = [
+    4,
+    -67,
+    34,
+    123,
+    567,
+    4567888767,
+    -7657,
+];
+
+function getMaxValue(obj) {
+    let prevValue = 0;
+    let maxValue;
+    for (let value in obj) {
+        let currentValue = obj[value];
+        if (currentValue > prevValue) {
+            prevValue = currentValue;
+            maxValue = prevValue;
+        };
+    };
+    return maxValue;
+};
+console.log(getMaxValue(numbers));
