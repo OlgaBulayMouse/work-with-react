@@ -6,7 +6,7 @@ export class AddListItemForm extends Component {
         this.handlerSubmit = this.handlerSubmit.bind(this)
         this.handlerChange = this.handlerChange.bind(this)
         this.state = {
-            item: 'hello!',
+            item: '',
         }
     };
     handlerChange(event) {
@@ -14,6 +14,7 @@ export class AddListItemForm extends Component {
             if(event.target.value.includes('!'))
             return({
                 warn: 'Do not use symbol "!" !',
+                item: '',
             })
             else return({
                 item: event.target.value,
@@ -23,7 +24,7 @@ export class AddListItemForm extends Component {
 
     handlerSubmit(event) {
         event.preventDefault();
-        console.log('hello!');
+        this.props.onSubmit(this.state.item);
     };
     render() {
         return (
